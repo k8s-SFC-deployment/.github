@@ -11,6 +11,7 @@ However, these studies have not clearly defined the relationships between nodes 
 In this thesis, we redefined and implemented these relationships and combined off-policy Multi-Agent DRL method.
 And, we built a system to apply these concepts in a real environment with Kubernetes.
 
+
 ## Repos
 
 We have 6 repos:
@@ -32,3 +33,13 @@ We have 6 repos:
 
 1. Set up K8S environment. You can refer [k8s](https://github.com/k8s-SFC-deployment/k8s) repo.
 2. Set up kubernetes scheduler to remote scoring scheduler and learn Model with RL model ([rl](https://github.com/k8s-SFC-deployment/rl) repo).
+
+## Architecture
+
+
+<div align="center">
+  
+  <img width="500px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_overall_architecture.png" />
+  <img width="500px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_rl_model_multiple_agent.png" />
+
+</div>
