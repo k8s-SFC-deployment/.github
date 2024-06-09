@@ -15,17 +15,17 @@ And, we built a system to apply these concepts in a real environment with Kubern
 
 We have 6 repos:
 
-- [rl](https://github.com/k8s-SFC-deployment/rl)
+- [rl](https://github.com/k8s-SFC-deployment/rl)  
   RL model for Kubernetes Scheduling. We use DRL+GNN.
 - [k8s](https://github.com/k8s-SFC-deployment/k8s)  
   You can find kubernetes cluster setup Information. 
-- [scheduler-plugins](https://github.com/k8s-SFC-deployment/scheduler-plugins)
+- [scheduler-plugins](https://github.com/k8s-SFC-deployment/scheduler-plugins)  
   We forked from [kube/scheduler-plugins](https://github.com/kubernetes-sigs/scheduler-plugins), and add remote scoring to call RL model.
 - [VNF-SCC-SFC](https://github.com/k8s-SFC-deployment/vnf-scc-sfc)  
   VNF Simulating Container Considering SFC with HTTP
-- [SFC-E2E-collector](https://github.com/k8s-SFC-deployment/sfc-e2e-collector)
+- [SFC-E2E-collector](https://github.com/k8s-SFC-deployment/sfc-e2e-collector)  
   Collecting SFC e2e latency.
-- [nmbn-exporter](https://github.com/k8s-SFC-deployment/nmbn-exporter)
+- [nmbn-exporter](https://github.com/k8s-SFC-deployment/nmbn-exporter)  
   Prometheus Exporter for network metrics between nodes with iptables.
 
 ## How to run
