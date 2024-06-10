@@ -4,12 +4,12 @@ Topology-Aware Service Function Chain Scheduling using GNN and DRL in kubernetes
 
 ## Abstract
 
-To manage various network requirements flexibly and effectively, the concepts of Network Function Virtualization (NFV) and Service Function Chain (SFC) have emerged.
+_To manage various network requirements flexibly and effectively, the concepts of Network Function Virtualization (NFV) and Service Function Chain (SFC) have emerged.
 However, without efficient operation, these can result in significant costs in terms of power consumption, Quality of Service (QoS), and service availability.
 Previous research has attempted to overcome these challenges using various SFC scheduling technologies with Deep Reinforcement Learning (DRL) and Graph Neural Networks (GNN).
 However, these studies have not clearly defined the relationships between nodes in a cluster and containers within services, limiting efficient scheduling.
 In this thesis, we redefined and implemented these relationships and combined off-policy Multi-Agent DRL method.
-And, we built a system to apply these concepts in a real environment with Kubernetes.
+And, we built a system to apply these concepts in a real environment with Kubernetes._
 
 
 ## Repos
@@ -52,7 +52,7 @@ Our scheduling process has 9 steps.
 
 <div align="center">
   
-  <img width="500px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_overall_architecture.png" />
+  <img width="600px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_overall_architecture.png" />
 
 </div>
 
@@ -62,7 +62,7 @@ We develop monitoring system with 6 modules (prometheus exporters and custom met
 
 <div align="center">
   
-  <img width="500px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_monitoring_overall.png" />
+  <img width="600px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_monitoring_overall.png" />
 
 </div>
 
@@ -87,6 +87,6 @@ To embed graph information, we use GAT(GNN) model. And, to optimize multi-object
 
 <div align="center">
 
-  <img width="500px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_rl_model_multiple_agent.png" />
+  <img width="800px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_rl_model_multiple_agent.png" />
   
 </div>
