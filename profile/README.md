@@ -36,10 +36,57 @@ We have 6 repos:
 
 ## Architecture
 
+### Overall Architecture
+
+Our scheduling process has 9 steps.
+
+1. The user sends a request to add a new pod.
+2. The Kubernetes cluster requests the scheduler to find a node to place the pod.
+3. The scheduler requests scores to DRL model implemented in our system. These scores will be assigned to nodes to find the optimal one for the pod placement.
+4. The DRL model requests cluster metric information from the monitoring system to select the node.
+5. The monitoring system collects the required information.
+6. The monitoring metrics are delivered to the DRL model.
+7. The DRL model selects the optimal node and provides the score to the Kubernetes scheduler.
+8. The Kubernetes scheduler communicates this information to the Kubernetes cluster.
+9. Finally, the Kubernetes cluster binds the pod to the selected node.
 
 <div align="center">
   
   <img width="500px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_overall_architecture.png" />
-  <img width="500px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_rl_model_multiple_agent.png" />
 
+</div>
+
+### Monitoring System
+
+We develop monitoring system with 6 modules (prometheus exporters and custom metric collector).
+
+<div align="center">
+  
+  <img width="500px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_monitoring_overall.png" />
+
+</div>
+
+As a result, we make a heterogeneous graph information.
+1. node : cpu usage, memory usage, total receive bytes, total transmit bytes
+2. pod : cpu usage, memory usage, total receive bytes, total transmit bytes
+3. service : cpu usage, memory usage, total receive bytes, total transmit bytes
+4. node-to-node : receive bytes, transmit bytes, ping latency
+5. service-to-service : http request bytes, http response bytes, http request duration
+6. node-to-pod : if pod is located in node, then exist.
+7. pod-to-service : if pod is belong to service, then exist.
+
+<div align="center">
+  
+  <img width="500px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_state.png" />
+
+</div>
+
+### DRL Model
+
+To embed graph information, we use GAT(GNN) model. And, to optimize multi-objective problem (power consumption, QoS-latency, service availability), we use TD3, SAC (Off-policy DRL).
+
+<div align="center">
+
+  <img width="500px" src="https://github.com/k8s-SFC-deployment/.github/blob/main/gt_rl_model_multiple_agent.png" />
+  
 </div>
